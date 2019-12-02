@@ -1,0 +1,24 @@
+{
+    "name": "Manager",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "manager"
+        }
+    ],
+    "changelogDate": "20190207202826",
+    "entityTableName": "manager",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "skipClient": true
+}

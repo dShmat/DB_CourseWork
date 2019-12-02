@@ -1,0 +1,8 @@
+{
+    "msg": {
+        "messages": {
+            "success": "Reports have been sent properly",
+            "error": "Something went wrong when sending"
+        }
+    }
+}

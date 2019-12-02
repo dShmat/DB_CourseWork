@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "report",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "report",
+            "otherEntityRelationshipNameUndefined": true
+        },
+        {
+            "relationshipName": "period",
+            "otherEntityName": "period",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "report",
+            "otherEntityRelationshipNameUndefined": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "hours",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "activities",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "daysAbsent",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20190207202822",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "report",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": true,
+    "pagination": "infinite-scroll"
+}

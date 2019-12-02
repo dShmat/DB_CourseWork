@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="collectmeApp.userReport.home.title">User Reports</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-user-report" [routerLink]="['/user-report/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="collectmeApp.userReport.home.createLabel">
+            Create new User Report
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="userReports">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="report.id"><span jhiTranslate="collectmeApp.userReport.report">Report</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="user.id"><span jhiTranslate="collectmeApp.userReport.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let userReport of userReports ;trackBy: trackId">
+                <td><a [routerLink]="['/user-report', userReport.id, 'view' ]">{{userReport.id}}</a></td>
+                <td>
+                    <div *ngIf="userReport.report">
+                        <a [routerLink]="['../report', userReport.report?.id, 'view' ]" >{{userReport.report?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{userReport.user?.id}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/user-report', userReport.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/user-report', userReport.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'user-report', { outlets: { popup: userReport.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

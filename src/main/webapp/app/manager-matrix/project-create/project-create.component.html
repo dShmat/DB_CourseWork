@@ -1,0 +1,38 @@
+<div tabindex="-1">
+    <div class="modal-content">
+        <div class="modal-header" jhiTranslate="collectmeApp.project.home.createModal">Create Project</div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label class="col-form-label" jhiTranslate="collectmeApp.project.name">Name:</label>
+                    <input type="text" class="form-control" required="required" [(ngModel)]="project.name"
+                           [ngModelOptions]="{standalone: true}"/> <!--[ngModel] = "(project | async)?.name"-->
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" jhiTranslate="collectmeApp.project.description"> Description: </label>
+                    <input type="text" class="form-control" [(ngModel)]="project.description"
+                           [ngModelOptions]="{standalone: true}"/><!--[ngModel] = "(project | async)?.description"-->
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="collectmeApp.project.type.type" > Type: </label>
+                    <select class="browser-default custom-select" (change)="selectChangeHandler($event)"
+                            [(ngModel)]="project.type" [ngModelOptions]="{standalone: true}">
+                        <option value="Commercial">{{"collectmeApp.project.type.Commercial"|translate}}</option>
+                        <option value="Investment">{{"collectmeApp.project.type.Investment"|translate}}</option>
+                    </select>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="dismiss()"
+                    jhiTranslate="collectmeApp.deleteCancelButtons.cancelButton">Cancel
+            </button>
+            <button type="button" class="btn btn-primary" (click)="save()"
+                    jhiTranslate="collectmeApp.deleteCancelButtons.addButton">Add
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+    "collectmeApp": {
+        "report": {
+            "home": {
+                "title": "Reports",
+                "createLabel": "Create a new Report",
+                "createOrEditLabel": "Create or edit a Report"
+            },
+            "created": "A new Report is created with identifier {{ param }}",
+            "updated": "A Report is updated with identifier {{ param }}",
+            "deleted": "A Report is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Report {{ id }}?"
+            },
+            "detail": {
+                "title": "Report"
+            },
+            "hours": "Total hours",
+            "activities": "Activities",
+            "daysAbsent": "Days Absent",
+            "user": "User:",
+            "project": "Project:",
+            "period": "Period:",
+            "type": "Type:",
+            "daysValidation": "Days must be between 0 and 23.",
+            "hoursValidation": "Hours must be between 0 and 744."
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.matrix-cell span .btn-delete {
+    position: absolute;
+    color: red;
+    font-size: small;
+    visibility: hidden;
+}
+.matrix-cell:hover span .btn-delete {
+    visibility: visible;
+    transition: 0.5s;
+}
+.btn-delete:hover {
+    -webkit-transform: scale(1.2, 1.2);
+    -ms-transform: scale(1.2, 1.2);
+    transform: scale(1.2, 1.2);
+}
+
+.matrix-cell span .btn-add {
+    visibility: hidden;
+}
+.matrix-cell:hover span .btn-add {
+    visibility: visible;
+}
+.matrix-cell {
+    text-align: center;
+    vertical-align: center;
+    position: relative;
+    font-weight: bold;
+}

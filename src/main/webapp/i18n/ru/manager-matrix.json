@@ -1,0 +1,56 @@
+{
+    "collectmeApp": {
+        "userManager": {
+            "deleted": "Успешно удалено",
+            "created": "Успешно добавлено"
+        },
+        "managerProject": {
+            "deleted": "Успешно удалено",
+            "created": "Успешно добавлено"
+        },
+        "homeTable": {
+            "table": {
+                "createProjectLabel": "Добавить Проект",
+                "createUserLabel": "Добавить сотрудника",
+                "sendReportsLabel": "Отправить отчёты",
+                "employeeLabel": "Сотрудник",
+                "hours": "(ч)"
+            }
+        },
+        "deleteUserManager": {
+            "label": "Удалить сотрудника",
+            "alertDelete": "У сотрудника есть заполненные отчёты. Вы уверены, что хотите удалить его?"
+        },
+        "matrixCell": {
+            "addToProjectTitle": "Добавить сотрудника в проект",
+            "viewReport": "Просмотреть репорт"
+        },
+        "deleteManagerProject": {
+            "label": "Удалить проект",
+            "alertDelete": "По этому проекту имеются заполненные отчёты. Уверены, что хотите удалить его?"
+        },
+        "deleteCancelButtons": {
+            "cancelButton": "Отмена",
+            "deleteButton": "Удалить",
+            "addButton": "Добавить",
+            "updateButton": "Обновить"
+        },
+        "addUser": {
+            "label": "Добавить сотрудника",
+            "searchUser": "Поиск сотрудников",
+            "warningEnglish": "Пожалуйста, вводите имя на английском языке т.е. Ivan Ivanov"
+        },
+        "sendReports": {
+            "label": "Добавить получателя",
+            "searchUser": "Поиск сотрудников",
+            "addAddressee": "Добавить получателя",
+            "to": "Кому:",
+            "send": "Отправить",
+            "subject": "Тема:"
+        },
+        "deleteReport": {
+            "label": "Удалить отчёт",
+            "alertDelete": "Отчёт заполнён. Вы уверены, что хотите удалить его?"
+        }
+    }
+}

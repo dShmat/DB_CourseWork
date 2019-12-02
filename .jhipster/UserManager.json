@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "manager",
+            "otherEntityName": "manager",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "userManager",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "userManager",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipName": "period",
+            "otherEntityName": "period",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "userManager",
+            "otherEntityRelationshipNameUndefined": true
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20190207202823",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "user_manager",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": true,
+    "pagination": "no"
+}

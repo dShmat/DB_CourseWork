@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-top: 5px solid black;
+
+  display: inline-block;
+}
+
+.list-ul {
+	padding: 0;
+	margin-left: 10px;
+    margin-top: 5px;
+}
+
+.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+
+  border-left: 5px solid black;
+
+  display: inline-block;
+}
+
+[id^="togList"],                        /* HIDE CHECKBOX */
+[id^="togList"] ~ .list, .arrow-down,   /* HIDE LIST, ARROWDOWN */
+[id^="togList"] + label  span + span,/* HIDE "Collapse" */
+[id^="togList"]:checked + label div + div{   /* HIDE "Expand" (IF CHECKED) */
+  display:none;
+}
+
+[id^="togList"]:checked + label span + span{
+  display:inline-block; /* SHOW "Collapse", ArrowDown (IF CHECKED) */
+}
+[id^="togList"]:checked ~ .list{
+  display:block;                        /* SHOW LIST (IF CHECKED) */
+}
+[id^="togList"]:checked + label div{
+	display:inline-block;
+}
+
+</style>
+</head>
+<body>
+
+<div class="row" th:each="userReportsItem, iterStat: ${userReports}">
+    <input th:id="'togList' + ${iterStat.index}" type="checkbox">
+    <label th:for="'togList' + ${iterStat.index}">
+        <div class="arrow-down"></div>
+        <div class="arrow-right"></div>
+        <span th:text="${userReportsItem.getUser().getFirstName()}+' '+${userReportsItem.getUser().getLastName()}"></span>
+    </label>
+    <div class="list">
+        <ul class="list-ul" th:each="report: ${userReportsItem.getReports()}">
+            <b th:text="${report.getProject().getName()}+'('+(${report.getHours()}?:'0')+')'"></b>
+            <p></p>
+            <b th:text="'отсутствия - '+(${report.getDaysAbsent()}?:'0') + ' дней'"></b>
+            <p></p>
+            <pre th:text="${report.getActivities()}?:'нет репортов за этот период'"></pre>
+            <p></p>
+            <b>--------------------------------------------------</b>
+        </ul>
+
+    </div>
+</div>
+</body>
+</html>

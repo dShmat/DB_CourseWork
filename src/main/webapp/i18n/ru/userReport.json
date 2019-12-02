@@ -1,0 +1,22 @@
+{
+    "collectmeApp": {
+        "userReport": {
+            "home": {
+                "title": "User Reports",
+                "createLabel": "Создать новый User Report",
+                "createOrEditLabel": "Создать или отредактировать User Report"
+            },
+            "created": "Новый User Report создан с идентификатором {{ param }}",
+            "updated": "User Report обновлен с идентификатором {{ param }}",
+            "deleted": "User Report удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить User Report {{ id }}?"
+            },
+            "detail": {
+                "title": "User Report"
+            },
+            "report": "Report",
+            "user": "User"
+        }
+    }
+}

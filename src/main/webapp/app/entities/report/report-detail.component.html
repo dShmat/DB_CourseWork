@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="report">
+            <h2><span jhiTranslate="collectmeApp.report.detail.title">Report</span> {{report.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="collectmeApp.report.hours">Hours</span></dt>
+                <dd>
+                    <span>{{report.hours}}</span>
+                </dd>
+                <dt><span jhiTranslate="collectmeApp.report.activities">Activities</span></dt>
+                <dd>
+                    <span>{{report.activities}}</span>
+                </dd>
+                <dt><span jhiTranslate="collectmeApp.report.daysAbsent">Days Absent</span></dt>
+                <dd>
+                    <span>{{report.daysAbsent}}</span>
+                </dd>
+                <dt><span jhiTranslate="collectmeApp.report.user">User</span></dt>
+                <dd>
+                    {{report.user.login}}
+                </dd>
+                <dt><span jhiTranslate="collectmeApp.report.project">Project</span></dt>
+                <dd>
+                    <div *ngIf="report.project.id">
+                        <a [routerLink]="['/project', report.project.id, 'view']">{{report.project.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="collectmeApp.report.period">Period</span></dt>
+                <dd>
+                    <div *ngIf="report.period.id">
+                        <a [routerLink]="['/period', report.period.id, 'view']">{{report.period.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/report', report.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item" *ngFor="let period of periods">
+        <a class="nav-link" (click)="onClick(period)" [ngClass]="period.id === selectedPeriod.id ? 'active' : ''">{{"global.month." + monthAsNumber(period.month) | translate}}</a>
+    </li>
+</ul>

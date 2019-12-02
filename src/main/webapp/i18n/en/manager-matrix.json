@@ -1,0 +1,56 @@
+{
+    "collectmeApp": {
+        "userManager": {
+            "deleted": "Deleted successfully",
+            "created": "Added successfully"
+        },
+        "managerProject": {
+            "deleted": "Deleted successfully",
+            "created": "Added successfully"
+        },
+        "homeTable": {
+            "table": {
+                "createProjectLabel": "Add Project",
+                "createUserLabel": "Add Employee",
+                "sendReportsLabel": "Send Reports",
+                "employeeLabel": "Employee",
+                "hours": "(h)"
+            }
+        },
+        "deleteUserManager": {
+            "label": "Delete employee",
+            "alertDelete": "This employee has fulfilled reports. Are you sure you want to delete him?"
+        },
+        "matrixCell": {
+            "addToProjectTitle": "Add employee to project",
+            "viewReport": "View report"
+        },
+        "deleteManagerProject": {
+            "label": "Delete project",
+            "alertDelete": "This project has fulfilled reports. Are you sure you want to delete it?"
+        },
+        "deleteCancelButtons": {
+            "cancelButton": "Cancel",
+            "deleteButton": "Delete",
+            "addButton": "Add",
+            "updateButton": "Update"
+        },
+        "addUser": {
+            "label": "Add employee",
+            "searchUser": "Search employees",
+            "warningEnglish": "Please type in English i.e. Ivan Ivanov"
+        },
+        "sendReports": {
+            "label": "Add recipient",
+            "searchUser": "Search employees",
+            "addAddressee": "Add addressee",
+            "to": "To:",
+            "send": "Send",
+            "subject": "Subject:"
+        },
+        "deleteReport": {
+            "label": "Delete report",
+            "alertDelete": "This report is fulfilled. Are you sure you want to delete it?"
+        }
+    }
+}

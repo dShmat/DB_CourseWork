@@ -1,0 +1,15 @@
+<div class="modal-header" jhiTranslate="collectmeApp.deleteUserManager.label">Delete employee</div>
+<div class="modal-body">
+    <div class="alert alert-warning" role="alert"
+         jhiTranslate="collectmeApp.deleteUserManager.alertDelete">
+        This employee has fulfilled reports. Are you sure you want to delete him?
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="dismiss()"
+                jhiTranslate="collectmeApp.deleteCancelButtons.cancelButton">Cancel
+        </button>
+        <button type="button" class="btn btn-primary" (click)="delete()"
+                jhiTranslate="collectmeApp.deleteCancelButtons.deleteButton">Delete
+        </button>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+    "name": "UserReport",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "report",
+            "otherEntityName": "report",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userReport"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "userReport"
+        }
+    ],
+    "changelogDate": "20190204152242",
+    "entityTableName": "user_report",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

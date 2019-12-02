@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-9">
+        <div *ngIf="report">
+            <div>
+                <h2><span id="jhi-report-heading" jhiTranslate="collectmeApp.report.detail.title">Report</span></h2>
+                <div>
+                    <div>
+                        <label class="form-control-label" jhiTranslate="collectmeApp.report.project">Project: </label>
+                        <span class="report-header">{{project?.name}}</span>
+                    </div>
+                    <!--DELETE IF AFTER ADD REDACTING PROJECTS-->
+                    <div *ngIf="project?.type">
+                        <label class="form-control-label" jhiTranslate="collectmeApp.report.type">Type: </label>
+                        <span class="report-header">{{"collectmeApp.project.type." + project.type|translate}}</span>
+                    </div>
+                    <div>
+                        <label class="form-control-label" jhiTranslate="collectmeApp.report.period">Period: </label>
+                        <span class="report-header">({{period?.month | date:'MMMM yyyy'}})</span>
+                    </div>
+                    <div>
+                        <label class="form-control-label" jhiTranslate="collectmeApp.report.user">User: </label>
+                        <span class="report-header" >{{report.user?.firstName + " " + report.user.lastName}}</span>
+                    </div>
+                </div>
+                <span *ngIf="currentAccount">
+                    <button type="submit" (click)="previousState()" class="btn btn-info">
+                        <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span
+                        jhiTranslate="entity.action.back">Back</span>
+                    </button>
+                    <button type="button"
+                            [routerLink]="['/monthly_report', report.id, 'report_edit']" class="btn btn-primary">
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;
+                        <span jhiTranslate="entity.action.edit">Edit</span>
+                    </button>
+                </span>
+            </div>
+            <hr>
+            <dl class="row-md jh-entity-details">
+                <dt><label jhiTranslate="collectmeApp.report.daysAbsent">Days Absent</label></dt>
+                <dd>
+                    <span>{{report.daysAbsent}}</span>
+                </dd>
+                <dt><label jhiTranslate="collectmeApp.report.hours">Total hours</label></dt>
+                <dd>
+                    <span>{{report.hours}}</span>
+                </dd>
+                <dt><label jhiTranslate="collectmeApp.report.activities">Activities</label></dt>
+                <dd>
+                    <pre>{{report.activities}}</pre>
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+
+</div>

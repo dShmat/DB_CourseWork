@@ -1,0 +1,58 @@
+entity Project {
+	name String,
+    description String,
+    status String
+}
+
+entity Report {
+	hours String,
+    activities String,
+    daysAbsent Integer,
+    endDate period
+}
+entity UserManager{
+}
+entity ManagerProject{
+}
+entity UserProject{
+}
+entity Manager{
+}
+entity User{
+}
+relationship OneToOne{
+	Manager{user} to User
+} 
+relationship ManyToOne{
+	UserManager{manager} to Manager
+}
+relationship ManyToOne{
+	UserManager{user} to User
+}
+relationship ManyToOne{
+	ManagerProject{manager} to Manager
+}
+relationship ManyToOne{
+	ManagerProject{project} to Project
+}
+relationship ManyToOne{
+	Report{userproject} to UserProject
+}
+relationship ManyToOne{
+	UserProject{user} to User
+}
+
+relationship ManyToOne{
+	UserProject{project} to Project
+}
+
+
+
+
+// Set pagination options
+paginate Report, Project with infinite-scroll
+
+// Set service options to all except few
+service all with serviceClass
+dto * with mapstruct
+skipClient Manager, UserManager, ManagerProject

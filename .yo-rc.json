@@ -1,0 +1,38 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.ibagroup.collectme",
+            "nativeLanguage": "en"
+        },
+        "jhipsterVersion": "5.8.1",
+        "applicationType": "monolith",
+        "baseName": "collectme",
+        "packageName": "com.ibagroup.collectme",
+        "packageFolder": "com/ibagroup/collectme",
+        "serverPort": "8080",
+        "authenticationType": "session",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "mysql",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "rememberMeKey": "b0ccfb924c96cef1e5892eed8ff3e3fce25accd67e9ecda441dffafaaa5b88ad1e83098214799114c7d2f8e4d095009197c6",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "en",
+        "languages": ["en", "ru"]
+    }
+}

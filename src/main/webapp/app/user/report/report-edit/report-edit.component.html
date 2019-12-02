@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-9">
+        <form name="editForm" role="form" (ngSubmit)="save()" [formGroup]="reportForm">
+            <div>
+                <h2><span id="jhi-report-heading" jhiTranslate="collectmeApp.report.detail.title">Report</span></h2>
+                <div>
+                    <div>
+                        <label class="form-control-label" jhiTranslate="collectmeApp.report.project">Project: </label>
+                        <span class="report-header">{{project?.name}}</span>
+                    </div>
+                    <!--DELETE IF AFTER ADD REDACTING PROJECTS-->
+                    <div *ngIf="project?.type">
+                        <label class="form-control-label" jhiTranslate="collectmeApp.report.type">Type: </label>
+                        <span class="report-header">{{"collectmeApp.project.type." + project?.type|translate}}</span>
+                    </div>
+                    <div>
+                        <label class="form-control-label" jhiTranslate="collectmeApp.report.period">Period: </label>
+                        <span class="report-header">({{period?.month | date:'MMMM yyyy'}})</span>
+                    </div>
+                    <div>
+                        <label class="form-control-label" jhiTranslate="collectmeApp.report.user">User: </label>
+                        <span class="report-header">{{report.user?.firstName + " " + report.user.lastName}}</span>
+                    </div>
+                </div>
+                <span>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="!reportForm.valid || isSaving"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </span>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_daysAbsent"
+                           jhiTranslate="collectmeApp.report.daysAbsent">Days Absent</label>
+                    <input formControlName="days" class="form-control" name="daysAbsent" id="field_daysAbsent"
+                           [(ngModel)]="report.daysAbsent"/>
+                    <span *ngIf="(days.dirty || days.touched) && days.invalid"
+                          jhiTranslate="collectmeApp.report.daysValidation">Days must be between 0 and 23.</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="collectmeApp.report.hours"
+                           for="field_hours">Total hours</label>
+                    <input formControlName="hours" class="form-control" name="hours" id="field_hours"
+                           [(ngModel)]="report.hours"/>
+                    <span *ngIf="(hours.dirty || hours.touched) && hours.invalid"
+                          jhiTranslate="collectmeApp.report.hoursValidation">Hours must be between 0 and 744.</span>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label"
+                           jhiTranslate="collectmeApp.report.activities"
+                           for="field_activities">Activities</label>
+                    <textarea style="overflow:hidden" #activitiesInput (input)="onInput($event.target)"
+                              formControlName="activities"
+                              class="form-control" name="activities" id="field_activities"
+                              [(ngModel)]="report.activities"></textarea>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

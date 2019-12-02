@@ -1,0 +1,118 @@
+.col .btn-delete {
+    position: absolute;
+    padding: 0;
+    color: red;
+    visibility: hidden;
+}
+
+.col:hover .btn-delete {
+    visibility: visible;
+    transition: 0.3s;
+}
+
+.col-2 .btn-delete {
+    position: absolute;
+    color: red;
+    visibility: hidden;
+}
+
+.col-2:hover .btn-delete {
+    visibility: visible;
+    transition: 0.5s;
+}
+
+.header {
+    z-index: 1;
+    min-width: 100%;
+    margin-left: 0;
+    padding-right: 17px;
+    background-color: white;
+    top: 0;
+    position: sticky;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    min-height: 4em;
+    border-bottom: 1px solid #dddddd;
+    transition: 0.5s;
+}
+.header .col {
+    min-width: 10em;
+    width: auto;
+    position: relative;
+    border-left: 1px solid #dddddd;
+}
+.header .col-2 {
+    border-right: 1px solid #dddddd;
+    background-color: #ffffff;
+    position: sticky;
+    left: 0;
+    min-width: 10em;
+}
+
+.header .first {
+    border-left: 0;
+}
+
+.header .col span {
+    padding: 0;
+}
+
+.users {
+    background-color: #ffffff;
+    min-width: 10em;
+    padding-left: 15px;
+    border-right: 1px solid #dddddd;
+    position: sticky;
+    left: 0;
+    font-weight: bold;
+    height: 3em;
+}
+
+.body {
+    padding-right: 17px;
+    margin-left: 0;
+    border-bottom: 1px solid #dddddd;
+}
+
+.body .col {
+    position: relative;
+    min-width: 10em;
+    border-right: 1px solid #dddddd;
+    padding: 0;
+}
+
+.body .last {
+    border-right: 0;
+}
+
+.btn-wrapper {
+    position: relative;
+    float: right;
+    top: 0;
+}
+
+.container-wrap {
+    max-height: 700px;
+    width: auto;
+    min-width: 100%;
+    overflow: scroll;
+    padding-right: 0px;
+    padding-left: 0px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+}
+
+.shader {
+    -webkit-box-shadow: 0px 2px 4px -2px rgba(50, 50, 50, 0.44);
+    -moz-box-shadow: 0px 2px 4px -2px rgba(50, 50, 50, 0.44);
+    box-shadow: 0px 2px 4px -2px rgba(50, 50, 50, 0.44);
+}
+
+.mb-5 {
+    text-align: right;
+}
+.container-inner {
+    position: relative;
+    min-width: inherit;
+}

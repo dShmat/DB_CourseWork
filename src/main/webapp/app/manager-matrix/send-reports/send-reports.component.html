@@ -1,0 +1,40 @@
+<div class="modal-header" jhiTranslate="collectmeApp.addUser.label">Add User</div>
+<div class="modal-body">
+
+    <ul class="list-group-flush" [(ngModel)]="users" name="email-list" ngDefaultControl>
+       <li class="list-group-item" *ngFor="let user of users; index as i; let first = first; let last = last" [ngClass]="first?'':'default'">
+           <b *ngIf="first" jhiTranslate="collectmeApp.sendReports.to">To:</b>
+           {{user.firstName}} {{user.lastName}} ({{user.email}}) <span *ngIf="!last">,</span>
+           <button class="btn btn-sm btn-delete" (click)="deleteUser(i)">
+               <fa-icon [icon]="'times'"></fa-icon>
+           </button>
+       </li>
+    </ul>
+    <form>
+        <label for="subject-input" class="tab-label" jhiTranslate="collectmeApp.sendReports.subject">Subject</label>
+        <div class="input-group subject">
+            <input id="subject-input" type="text" class="form-control" [(ngModel)]="subject" [ngModelOptions]="{standalone: true}"/>
+        </div>
+        <label for="typeahead-basic" jhiTranslate="collectmeApp.sendReports.searchUser">Search Users</label>
+        <div class="alert alert-warning small" role="alert" jhiTranslate="collectmeApp.addUser.warningEnglish">
+            Please type in English i.e. Ivan Ivanov.
+        </div>
+        <div class="input-group">
+        <input id="typeahead-basic" type="text" class="form-control"
+               [ngbTypeahead]="search"
+               [resultTemplate]="rt"
+               [inputFormatter]="formatter"/>
+        <button class="btn btn-primary btn-add input-group-append" (click)="addUser()" jhiTranslate="collectmeApp.sendReports.addAddressee" [disabled]="!selectedUser">Add Addressee</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="dismiss()"
+                    jhiTranslate="collectmeApp.deleteCancelButtons.cancelButton">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="sendReports()"
+                    jhiTranslate="collectmeApp.sendReports.send">Add</button>
+        </div>
+        <ng-template #rt let-r="result" let-t="term">
+            <ngb-highlight [result]="r.firstName + ' ' + r.lastName + ' (' + r.email + ')'" [term]="t"></ngb-highlight>
+        </ng-template>
+
+    </form>
+</div>

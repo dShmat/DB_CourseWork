@@ -1,0 +1,24 @@
+<div class="modal-header" jhiTranslate="collectmeApp.addUser.label">Add User</div>
+<div class="modal-body">
+
+    <form>
+        <label for="typeahead-basic" jhiTranslate="collectmeApp.addUser.searchUser">Search Users</label>
+        <div class="alert alert-warning small" role="alert" jhiTranslate="collectmeApp.addUser.warningEnglish">
+            Please type in English i.e. Ivan Ivanov.
+        </div>
+        <input id="typeahead-basic" type="text" class="form-control"
+               [ngbTypeahead]="search"
+               [resultTemplate]="rt"
+               [inputFormatter]="formatter"/>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="dismiss()"
+                    jhiTranslate="collectmeApp.deleteCancelButtons.cancelButton">Cancel</button>
+            <button type="button" class="btn btn-primary" (click)="save()"
+                    jhiTranslate="collectmeApp.deleteCancelButtons.addButton">Add</button>
+        </div>
+        <ng-template #rt let-r="result" let-t="term">
+            <ngb-highlight [result]="r.firstName + ' ' + r.lastName + ' (' + r.email + ')'" [term]="t"></ngb-highlight>
+        </ng-template>
+    </form>
+</div>

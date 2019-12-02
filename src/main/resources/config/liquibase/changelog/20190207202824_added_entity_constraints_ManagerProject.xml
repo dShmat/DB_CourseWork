@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity ManagerProject.
+    -->
+    <changeSet id="20190207202824-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="manager_id"
+                                 baseTableName="manager_project"
+                                 constraintName="fk_manager_project_manager_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="manager"/>
+
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="manager_project"
+                                 constraintName="fk_manager_project_project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+
+        <addForeignKeyConstraint baseColumnNames="period_id"
+                                 baseTableName="manager_project"
+                                 constraintName="fk_manager_project_period_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="period"/>
+
+    </changeSet>
+</databaseChangeLog>

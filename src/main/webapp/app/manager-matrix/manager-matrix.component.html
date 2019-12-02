@@ -1,0 +1,65 @@
+<div class="mb-5">
+    <div class="d-inline container mt-5">
+        <button (click)="openSendReportsModal()" class="btn btn-primary"
+                jhiTranslate="collectmeApp.homeTable.table.sendReportsLabel">Send Reports
+        </button>
+    </div>
+    <div class="d-inline container mt-5">
+        <button *ngIf="period && currentPeriod" class="btn btn-primary" (click)="toggleChild()"
+                [disabled]="period.id<currentPeriod.id ? 'disabled':''"
+                jhiTranslate="collectmeApp.homeTable.table.createProjectLabel">Add Project
+        </button>
+    </div>
+    <div class="d-inline container mt-5">
+        <button *ngIf="period && currentPeriod" class="btn btn-primary" (click)="toggleUserChild()"
+                [disabled]="period.id<currentPeriod.id ? 'disabled':''"
+                jhiTranslate="collectmeApp.homeTable.table.createUserLabel">Add User
+        </button>
+    </div>
+</div>
+<jhi-alert></jhi-alert>
+<jhi-navigation-bar *ngIf="period"
+                    [selectedPeriod]="period"
+                    (reloadAllEvent)="loadAll($event)"></jhi-navigation-bar>
+<div *ngIf="projects" class="container-fluid container-wrap" #container (scroll)="onScroll($event)">
+    <div class="container-inner" [style.width]="projects.length*10 + 20+'em'">
+        <div class="row header flex-nowrap" #header>
+            <div class="col order-2" *ngFor="let project of projects let first=first" [ngClass]="{first: first}">
+                <span class="btn-wrapper">
+                    <button *ngIf="currentPeriod.id <= period.id" class="btn btn-sm btn-delete"
+                            (click)="deleteManagerProject(project)">
+                        <fa-icon [icon]="'times'"></fa-icon>
+                    </button>
+                </span>
+                <span class="btn btn-link" (click)="editProject(project)">
+                    <b>{{project.name}}
+                        <div *ngIf="project.type">
+                            ({{"collectmeApp.project.type." + project?.type|translate}})
+                        </div>
+                    </b>
+                </span>
+            </div>
+            <div class="col-2 order-1">
+                <span jhiTranslate="collectmeApp.homeTable.table.employeeLabel">Employee</span> /
+                <span jhiTranslate="collectmeApp.project.home.title">Projects</span>
+                <span jhiTranslate="collectmeApp.homeTable.table.hours">h</span>
+            </div>
+        </div>
+        <div class="row body flex-nowrap" #body *ngFor="let user of users; index as i">
+            <div class="col order-1" *ngFor="let project of projects; let last = last;" [ngClass]="{last: last}">
+                <jhi-matrix-cell *ngIf="reports" [report]="findReport(project, user)"
+                                 [selectedPeriod]="period"
+                                 [currentPeriod]="currentPeriod"
+                                 (addUserToProjectEvent)="addUserToProject(user, project)"
+                                 (deleteUserProjectEvent)="deleteReport(user, project)"></jhi-matrix-cell>
+            </div>
+            <div class="col-2 users order-0">
+                {{i + 1}}. {{user.firstName}} {{user.lastName}}
+                <button *ngIf="currentPeriod.id <= period.id" class="btn btn-sm btn-delete"
+                        (click)="deleteUserManager(user)">
+                    <fa-icon [icon]="'times'"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

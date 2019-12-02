@@ -1,0 +1,42 @@
+<div class="col-12">
+    <h2 id="page-heading">
+        <span jhiTranslate="collectmeApp.report.home.title">Reports</span>
+    </h2>
+    <jhi-navigation-bar *ngIf="period"
+                        [selectedPeriod]="period"
+                        (reloadAllEvent)="loadAll($event)"></jhi-navigation-bar>
+    <div class="table-responsive" *ngIf="reports">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th><span>№</span></th>
+                <th><span jhiTranslate="collectmeApp.report.project">Project</span></th>
+                <th><span jhiTranslate="collectmeApp.report.hours">Total hours</span></th>
+                <th><span jhiTranslate="collectmeApp.report.activities">Activities</span></th>
+                <th><span jhiTranslate="collectmeApp.report.daysAbsent">Days Absent</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let report of reports; let i = index">
+                <td class="counterColumn">{{i + 1}}</td>
+                <td class="projectColumn">
+                    <div>
+                        <div *ngFor="let project of projects">
+                            <a [routerLink]="['/monthly_report', report.id, 'report_view' ]" *ngIf="project &&
+                            isUserProject(report, project)" class="btn btn-link">{{project.name}}
+                                <div *ngIf="project.type">
+                                    ({{"collectmeApp.project.type." + project?.type|translate}})
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </td>
+                <td class="hoursColumn">{{report.hours}}</td>
+                <td class="activitiesColumn">{{report.activities}}</td>
+                <td class="daysColumn">{{report.daysAbsent}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

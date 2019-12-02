@@ -1,0 +1,17 @@
+<div class="matrix-cell" style="">
+    <span *ngIf="report">
+            <button class="btn btn-link btn-report"
+                    title="{{'collectmeApp.matrixCell.viewReport'|translate}}"
+                    [routerLink]="['/monthly_report', report.id, 'report_view' ]">{{report.hours || "0"}}</button>
+            <button *ngIf="currentPeriod.id <= report.period.id" class="btn btn-sm btn-delete"
+                    (click)="deleteUserProjectEvent.emit()"><fa-icon [icon]="'times'"></fa-icon></button>
+
+    </span>
+    <span *ngIf="!report">
+        <button class="btn btn-link btn-add"
+                *ngIf="currentPeriod.id <= selectedPeriod.id"
+                (click)="addUserToProjectEvent.emit()">
+            <fa-icon [icon]="'plus'" title="{{'collectmeApp.matrixCell.addToProjectTitle'|translate}}"></fa-icon>
+        </button>
+    </span>
+</div>

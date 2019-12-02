@@ -1,0 +1,22 @@
+<div *ngIf="!isAuthenticated()">
+
+</div>
+
+<div *jhiHasAnyAuthority="'ROLE_MANAGER'">
+    <jhi-manager-matrix></jhi-manager-matrix>
+</div>
+
+<div *jhiHasAnyAuthority="'ROLE_USER'">
+    <jhi-report-home></jhi-report-home>
+</div>
+
+<div *jhiHasAnyAuthority="'ROLE_ADMIN'" class="row">
+
+    <div class="col-md-9">
+        <h1 class="display-4" jhiTranslate="home.title">Welcome, Java Hipster!</h1>
+        <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
+    </div>
+
+</div>
+
+

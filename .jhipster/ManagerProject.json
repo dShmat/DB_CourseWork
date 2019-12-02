@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "manager",
+            "otherEntityName": "manager",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "managerProject",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "managerProject",
+            "otherEntityRelationshipNameUndefined": false
+        },
+        {
+            "relationshipName": "period",
+            "otherEntityName": "period",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "managerProject",
+            "otherEntityRelationshipNameUndefined": true
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20190207202824",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceClass",
+    "entityTableName": "manager_project",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": true,
+    "pagination": "no"
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <property name="month" value="date(now()) - interval day(now()) day + interval 1 day " dbms="mysql"/>
+    <property name="next_month" value="${month} + interval 1 month" dbms="mysql"/>
+
+    
+    <changeSet id="0.1_1" author="admin">
+        <preConditions onFail="MARK_RAN" onFailMessage="Periods are already created">
+            <sqlCheck expectedResult="0">select count(*) from period</sqlCheck>
+        </preConditions>
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            insert into period(month) values(${month})
+        </sql>
+        <sql endDelimiter="\nGO"
+             splitStatements="true">
+            insert into period(month) values(${next_month})
+        </sql>
+    </changeSet>
+</databaseChangeLog>
