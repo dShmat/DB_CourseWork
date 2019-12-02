@@ -46,6 +46,8 @@ public class CacheConfiguration {
             cm.createCache(com.ibagroup.collectme.domain.ManagerProject.class.getName(), jcacheConfiguration);
             cm.createCache(com.ibagroup.collectme.domain.Manager.class.getName(), jcacheConfiguration);
             cm.createCache(com.ibagroup.collectme.domain.Period.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ibagroup.collectme.domain.Car.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ibagroup.collectme.domain.City.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
