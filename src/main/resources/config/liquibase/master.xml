@@ -14,6 +14,7 @@
     <include file="config/liquibase/changelog/0.1_cumulative_changelog.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191202152123_added_entity_City.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191202151859_added_entity_Car.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191202160705_added_entity_Route.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20190207202822_added_entity_constraints_Report.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190207202823_added_entity_constraints_UserManager.xml" relativeToChangelogFile="false"/>
