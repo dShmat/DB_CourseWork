@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="Dzmitry-Shmat" id="change-entity-Route-add-pk">
+
+        <addColumn tableName="route">
+            <column name="origin_id" type="bigint"/>
+        </addColumn>
+
+        <addColumn tableName="route">
+            <column name="destination_id" type="bigint" />
+        </addColumn>
+
+        <addForeignKeyConstraint baseColumnNames="origin_id"
+                                 baseTableName="route"
+                                 constraintName="fk_rote_origin_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="city"/>
+
+        <addForeignKeyConstraint baseColumnNames="destination_id"
+                                 baseTableName="route"
+                                 constraintName="fk_rote_destination_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="city"/>
+
+
+    </changeSet>
+
+</databaseChangeLog>
