@@ -16,6 +16,9 @@
     <include file="config/liquibase/changelog/20191202151859_added_entity_Car.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191202160705_added_entity_Route.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20191209143933_added_entity_Ride.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191216105912_added_entity_Ride_passenger.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191216121849_added_entity_Search_history.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191216122002_added_entity_Rating.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20190207202822_added_entity_constraints_Report.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190207202823_added_entity_constraints_UserManager.xml" relativeToChangelogFile="false"/>
@@ -25,6 +28,9 @@
     <include file="config/liquibase/changelog/20191202151859_added_entity_constraints_Car.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/201912091814_add_Route_Pk.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/201912091816_add_Ride_Pk.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201912161400_add_Ride_passenger_PK.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201912161520_add_Rating_PK.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/201912161522_add_Search_History_PK.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 
 </databaseChangeLog>

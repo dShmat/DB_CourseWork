@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet author="Dzmitry-Shmat" id="change-entity-Ride-Passenger-add-pk">
+
+        <addColumn tableName="ride_passenger">
+            <column name="passenger_id" type="bigint"/>
+        </addColumn>
+
+        <addColumn tableName="ride_passenger">
+            <column name="ride_id" type="bigint" />
+        </addColumn>
+
+        <addForeignKeyConstraint baseColumnNames="passenger_id"
+                                 baseTableName="ride_passenger"
+                                 constraintName="fk_ride_passenger_passenger_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="ride_id"
+                                 baseTableName="ride_passenger"
+                                 constraintName="fk_ride_passenger_ride_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ride"/>
+
+
+    </changeSet>
+
+</databaseChangeLog>

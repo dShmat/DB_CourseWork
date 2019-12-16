@@ -1,0 +1,23 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "origin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "start_time",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20191216121849",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "search_history",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}
